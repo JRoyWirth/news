@@ -10,10 +10,9 @@ before { puts "Parameters: #{params}" }
 ForecastIO.api_key = "98ca926ea2b9e22d701eb07810ad6059"
 
 require 'open-uri'
-url = 'http://newsapi.org/v2/top-headlines?'\
-      'country=us&'\
-      'apiKey=03a659223c4e4c738b04bbf78cf5403a'
-
+url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=03a659223c4e4c738b04bbf78cf5403a"
+news = HTTParty.get(url).parsed_response.to_hash
+# news is now a Hash you can pretty print (pp) and parse for your output
 
 get "/" do
   # show a view that asks for the location
@@ -32,7 +31,8 @@ get "/newsfeed" do
 
   # do news
     req = open(url)
-    @response_body = req.read      
+    @response_body = news
+    @news_array = @response_body['articles']     
 
   view "newsfeed"
 end

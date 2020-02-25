@@ -61,13 +61,17 @@
         <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMin'] %> degrees </p>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-sm">
         #section for news feed
         <h1>National News</h1>
-        <%= @ %>
+            <%= for article in @response_body['articles'] %>   
+                <p><%= article['title'] %></p>
+            <%= end %>
         </div>
     </div>
+
     <div class="row">
         <div class="col-sm">
         #section for news feed
