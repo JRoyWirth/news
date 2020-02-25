@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <!-- Swap out "Roboto" for the font(s) you want to use -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Your own CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Your location + World News</title>
+  </head>
+  <body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <h1>Its a small world after all!</h1>
+            <iframe
+            width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+            &q=<%= @lat %>,<%= @long %>&zoom=7" allowfullscreen>
+            </iframe>
+        
+            <p>
+                Selected Location: <%= @location %> <br> 
+                Selected Latitude:  <%= @lat %> <br>
+                Selected Longitude: <%= @long %>
+            </p>
+
+            <p>
+                <a href="/" class="btn btn-primary">Go again!</a>
+            </p>
+        </div>        
+        <div class="col-sm">
+        <!-- section for the weather forecast -->
+        <h1>Weather forecast for: <%= @location %></h1>
+        <p><%= @forecast['daily']['summary'] %></p>
+        <h3>Current</h3> 
+        <h5>Conditions: </h5>
+        <p><%= @forecast['currently']['summary'] %>, right now.</p>
+        <h5>Real-feel Temperature:</h5> <p> <%= @forecast['currently']['apparentTemperature'] %> degrees</p>
+        <h3>Tomorrow</h3>
+        <h5>Conditions: </h5>
+        <p><%= @forecast['daily']['data'][1]['summary'] %></p>
+        <h5>High real-feel Temperature:</h5>
+        <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMax'] %> degrees </p>
+        <h5>Low real-feel Temperature:</h5>
+        <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMin'] %> degrees </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+        #section for news feed
+
+        </div>
+    </div>
+</div>
+
