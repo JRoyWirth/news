@@ -19,6 +19,14 @@ get "/" do
   view "ask"
 end
 
+# enter your Dark Sky API key here
+ForecastIO.api_key = "98ca926ea2b9e22d701eb07810ad6059"
+
+require 'open-uri'
+url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=03a659223c4e4c738b04bbf78cf5403a"
+news = HTTParty.get(url).parsed_response.to_hash
+# news is now a Hash you can pretty print (pp) and parse for your output
+
 get "/newsfeed" do
   # do weather
     results = Geocoder.search(params["location"])
