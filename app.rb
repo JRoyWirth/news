@@ -9,13 +9,19 @@ before { puts "Parameters: #{params}" }
 # enter your Dark Sky API key here
 ForecastIO.api_key = "98ca926ea2b9e22d701eb07810ad6059"
 
+require 'open-uri'
+url = 'http://newsapi.org/v2/top-headlines?'\
+      'country=us&'\
+      'apiKey=03a659223c4e4c738b04bbf78cf5403a'
+
+
 get "/" do
   # show a view that asks for the location
   view "ask"
 end
 
 get "/newsfeed" do
-  # do everything else
+  # do weather
     results = Geocoder.search(params["location"])
     @lat_long = results.first.coordinates # => [lat, long]
     @lat = @lat_long[0]
@@ -23,6 +29,10 @@ get "/newsfeed" do
     @location = params["location"]
 
     @forecast = ForecastIO.forecast(@lat, @long)
+
+  # do news
+    req = open(url)
+    @response_body = req.read      
 
   view "newsfeed"
 end
