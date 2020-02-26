@@ -22,6 +22,13 @@
   </head>
   <body>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="location" id="myHeader"><%= @location %></h1>
+    <p>Use this website to find <%= @location %> on a map, learn about the weather and read about what is happening around the world!</p>
+  </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm">
@@ -35,31 +42,37 @@
             </iframe>
         
             <p>
-                Selected Location: <%= @location %> <br> 
+                Selected Location: <%= @location %><br> 
                 Selected Latitude:  <%= @lat %> <br>
                 Selected Longitude: <%= @long %>
             </p>
 
             <p>
-                <a href="/" class="btn btn-primary">Go again!</a>
+                <a href="/" class="btn btn-outline-info">Pick a new location!</a>
             </p>
         </div>        
         <div class="col-sm">
         <!-- section for the weather forecast -->
         <h1>Weather forecast for: <%= @location %></h1>
         <p><%= @forecast['daily']['summary'] %></p>
-        <h3>Current</h3> 
-        <h5>Conditions: </h5>
-        <p><%= @forecast['currently']['summary'] %>, right now.</p>
-        <h5>Real-feel Temperature:</h5> <p> <%= @forecast['currently']['apparentTemperature'] %> degrees</p>
-        <h3>Tomorrow</h3>
-        <h5>Conditions: </h5>
-        <p><%= @forecast['daily']['data'][1]['summary'] %></p>
-        <h5>High real-feel Temperature:</h5>
-        <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMax'] %> degrees </p>
-        <h5>Low real-feel Temperature:</h5>
-        <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMin'] %> degrees </p>
-        </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h3 id="header">Current</h3> 
+                    <h5>Conditions: </h5>
+                    <p><%= @forecast['currently']['summary'] %>, right now.</p>
+                    <h5>Real-feel Temperature:</h5> <p> <%= @forecast['currently']['apparentTemperature'] %> degrees</p>
+                </div>
+                <div class="col-sm">    
+                    <h3 id="header">Tomorrow</h3>
+                    <h5>Conditions: </h5>
+                    <p><%= @forecast['daily']['data'][1]['summary'] %></p>
+                    <h5>High real-feel Temperature:</h5>
+                    <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMax'] %> degrees </p>
+                    <h5>Low real-feel Temperature:</h5>
+                    <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMin'] %> degrees </p>
+                </div>
+            </div>    
+        </div>    
     </div>
     
     <div class="row">

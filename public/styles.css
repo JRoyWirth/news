@@ -1,0 +1,33 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  color: darkcyan;
+  font-weight: 700;
+}
+
+h1, h2 {
+  font-family: 'Acme', sans-serif;
+}
+
+.location {
+    text-transform: uppercase
+}
+
+.center {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  text-align: center;
+  padding: 15px auto;
+  margin: 0 0 20px;
+}
+
+#myHeader {
+    text-shadow: 2px 2px black
+}
+
+#header {
+    text-decoration: overline;
+}
+

@@ -22,15 +22,37 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="myHeader">Where do you want to go?</h1>
+    <p>Use this website to find your destination on a map, learn about the weather and read about what is happening around the world!</p>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <h2 class = "center">Let us explore...</h2>
       <form action="/newsfeed" method="get">  
         <label>Location:</label>
-        <input name="location"><br>
-        <button type="submit" class="btn bth-success">Submit</button><br><br>
-        <p>Ideas:</p><a href = "https://www.4hours1000places.com/1000-places/">1000 places to see before you die</a> 
+        <input name="location"><br><br>
+        <button type="submit" class="btn btn-outline-primary">Submit</button><br><br>
       </form>
     </div>
+    <div class="col-sm">
+      <p class = "center">
+        Ideas: <br>
+        <a href = "https://en.wikipedia.org/wiki/Wonders_of_the_World">Wonders of the World</a> <br>
+        <a href = "https://www.4hours1000places.com/1000-places/">1000 places to see before you die</a>
+      </p>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
