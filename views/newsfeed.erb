@@ -71,6 +71,14 @@
                     <h5>Low real-feel Temperature:</h5>
                     <p> <%= @forecast['daily']['data'][1]['apparentTemperatureMin'] %> degrees </p>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <h4 id="header">Rest of the Week</h4>
+                    <% for days in @daily[2,6] %>
+                        <p><strong><%= Time.at(days['time']).strftime("%A") %></strong>: <%= days['summary'] %> The apparent temperature range will be <%= days['apparentTemperatureMax'] %> to <%= days['apparentTemperatureMin'] %> degrees.</p> 
+                    <% end %>
+                </div>
             </div>    
         </div>    
     </div>

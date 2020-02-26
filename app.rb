@@ -36,6 +36,8 @@ get "/newsfeed" do
     @location = params["location"]
 
     @forecast = ForecastIO.forecast(@lat, @long)
+  
+    @daily = @forecast['daily']['data']
 
   # do news
     req = open(url)
